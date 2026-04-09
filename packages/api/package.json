@@ -1,0 +1,43 @@
+{
+  "name": "@nhljs/api",
+  "version": "0.1.0",
+  "description": "Interact with NHL APIs",
+  "keywords": [
+    "nhl",
+    "hockey"
+  ],
+  "homepage": "https://github.com/astrabun/nhljs#readme",
+  "bugs": {
+    "url": "https://github.com/astrabun/nhljs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astrabun/nhljs.git",
+    "directory": "packages/api"
+  },
+  "license": "ISC",
+  "author": "AstraBun",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4"
+  }
+}

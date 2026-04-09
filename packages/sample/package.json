@@ -1,0 +1,16 @@
+{
+  "name": "@nhljs/sample",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/today.ts"
+  },
+  "dependencies": {
+    "@nhljs/api": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "tsx": "^4.21.0"
+  }
+}
