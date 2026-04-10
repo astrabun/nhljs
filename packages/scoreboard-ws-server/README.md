@@ -15,9 +15,9 @@ PORT=9000 pnpm dev
 ### As a library
 
 ```ts
-import { ScoreboardWSServer } from '@nhljs/scoreboard-ws-server';
+import {ScoreboardWSServer} from '@nhljs/scoreboard-ws-server';
 
-const server = new ScoreboardWSServer({ port: 8080 });
+const server = new ScoreboardWSServer({port: 8080});
 
 // later:
 server.close();
@@ -30,7 +30,7 @@ server.close();
 Send a single JSON message after connecting:
 
 ```json
-{ "type": "subscribe", "team": "PHI" }
+{"type": "subscribe", "team": "PHI"}
 ```
 
 The team code is case-insensitive (`phi`, `PHI`, and `Phi` all work).
@@ -74,6 +74,6 @@ Multiple subscribers for the same team share a single poller. The poller is stop
 
 ## Environment
 
-| Variable | Default | Description        |
-| -------- | ------- | ------------------ |
-| `PORT`   | `8080`  | WebSocket port     |
+| Variable | Default | Description    |
+| -------- | ------- | -------------- |
+| `PORT`   | `8080`  | WebSocket port |
