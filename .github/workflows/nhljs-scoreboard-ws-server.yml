@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write  # Required for OIDC
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -34,5 +35,4 @@ jobs:
 
       - name: Publish
         run: pnpm --filter @nhljs/scoreboard-ws-server publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
