@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build dependencies
+        run: pnpm --filter @nhljs/api build
+
       - name: Build
         run: pnpm --filter @nhljs/scoreboard-ws-server build
 
