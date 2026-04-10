@@ -1,6 +1,6 @@
 {
   "name": "@nhljs/scoreboard-ws-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "WebSocket server that streams NHL game center landing data for a given team",
   "keywords": [
     "hockey",

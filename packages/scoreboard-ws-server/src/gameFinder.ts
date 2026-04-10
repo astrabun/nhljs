@@ -1,13 +1,9 @@
 import type {NHLClient, TeamAbbrev} from '@nhljs/api';
 
-function toDateString(date: Date): string {
-  return date.toISOString().slice(0, 10);
-}
-
 function yesterdayString(): string {
   const d = new Date();
-  d.setDate(d.getDate() - 1);
-  return toDateString(d);
+  d.setUTCDate(d.getUTCDate() - 1);
+  return d.toISOString().slice(0, 10);
 }
 
 function findTeamGameInDays(
@@ -20,31 +16,30 @@ function findTeamGameInDays(
     }[];
   }[],
   team: TeamAbbrev,
-  targetDate: string,
 ): number | undefined {
-  const day = days.find((d) => d.date === targetDate);
-  if (!day) {
-    return undefined;
+  for (const day of days) {
+    const game = day.games.find(
+      (g) => g.awayTeam.abbrev === team || g.homeTeam.abbrev === team,
+    );
+    if (game) {
+      return game.id;
+    }
   }
-  const game = day.games.find(
-    (g) => g.awayTeam.abbrev === team || g.homeTeam.abbrev === team,
-  );
-  return game?.id;
+  return undefined;
 }
 
 export async function findGameForTeam(
   client: NHLClient,
   team: TeamAbbrev,
 ): Promise<number | undefined> {
-  const today = toDateString(new Date());
+  // Search all days in the week to avoid UTC/local date mismatch (e.g. evening ET games)
   const schedule = await client.schedule.getNow();
-
-  const todayGameId = findTeamGameInDays(schedule.gameWeek, team, today);
-  if (todayGameId !== null) {
-    return todayGameId;
+  const weekGameId = findTeamGameInDays(schedule.gameWeek, team);
+  if (weekGameId !== undefined) {
+    return weekGameId;
   }
 
-  const yesterday = yesterdayString();
-  const ydaySchedule = await client.schedule.getByDate(yesterday);
-  return findTeamGameInDays(ydaySchedule.gameWeek, team, yesterday);
+  // Fallback: explicitly check yesterday in case we're at a week boundary
+  const ydaySchedule = await client.schedule.getByDate(yesterdayString());
+  return findTeamGameInDays(ydaySchedule.gameWeek, team);
 }
