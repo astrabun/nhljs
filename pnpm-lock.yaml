@@ -58,9 +58,6 @@ importers:
       '@types/ws':
         specifier: ^8.5.14
         version: 8.18.1
-      vitest:
-        specifier: ^3.2.4
-        version: 3.2.4(@types/node@25.5.2)(tsx@4.21.0)
 
 packages:
 
