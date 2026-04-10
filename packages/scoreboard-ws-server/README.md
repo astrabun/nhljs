@@ -4,6 +4,14 @@ A WebSocket server that streams live NHL game center data for a given team. Clie
 
 ## Usage
 
+### Docker
+
+See [`astrabun/nhl-scores-ws`](https://github.com/astrabun/nhl-scores-ws) for a Docker image / example compose file.
+
+```
+docker run --rm --name nhl-scores -p 8080:8080 ghcr.io/astrabun/nhl-scores-ws:latest
+```
+
 ### Standalone (dev)
 
 ```sh
