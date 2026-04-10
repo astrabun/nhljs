@@ -1,0 +1,38 @@
+{
+  "name": "@nhljs/scoreboard-ws-server",
+  "version": "0.1.0",
+  "description": "WebSocket server that streams NHL game center landing data for a given team",
+  "keywords": [
+    "hockey",
+    "nhl",
+    "websocket"
+  ],
+  "license": "ISC",
+  "author": "AstraBun",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx watch src/main.ts",
+    "start": "node dist/main.js",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@nhljs/api": "workspace:*",
+    "ws": "^8.18.2"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.5.14"
+  }
+}
