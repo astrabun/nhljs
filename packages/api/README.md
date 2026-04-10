@@ -11,7 +11,7 @@ npm install @nhljs/api
 ## Usage
 
 ```ts
-import { NHLClient } from '@nhljs/api';
+import {NHLClient} from '@nhljs/api';
 
 const client = new NHLClient();
 ```
@@ -21,7 +21,7 @@ All methods return typed promises.
 ## Example — Today's Games
 
 ```ts
-import { NHLClient } from '@nhljs/api';
+import {NHLClient} from '@nhljs/api';
 
 const client = new NHLClient();
 const schedule = await client.schedule.getNow();
@@ -97,40 +97,40 @@ Games for 2026-04-09 (14 games):
 ### Schedule
 
 ```ts
-client.schedule.getNow()                              // today's schedule
-client.schedule.getByDate('2024-01-15')               // schedule for a date
-client.schedule.getTeamSeason('TOR', '20232024')      // full season for a team
-client.schedule.getTeamMonth('TOR', '2024-01')        // team schedule for a month
-client.schedule.getTeamWeekNow('TOR')                 // team's current week
-client.schedule.getPlayoffCarousel('20232024')         // playoff series overview
-client.schedule.getPlayoffBracket(2024)               // playoff bracket
+client.schedule.getNow(); // today's schedule
+client.schedule.getByDate('2024-01-15'); // schedule for a date
+client.schedule.getTeamSeason('TOR', '20232024'); // full season for a team
+client.schedule.getTeamMonth('TOR', '2024-01'); // team schedule for a month
+client.schedule.getTeamWeekNow('TOR'); // team's current week
+client.schedule.getPlayoffCarousel('20232024'); // playoff series overview
+client.schedule.getPlayoffBracket(2024); // playoff bracket
 ```
 
 ### Standings
 
 ```ts
-client.standings.getNow()                             // current standings
-client.standings.getByDate('2024-01-15')              // standings at a date
-client.standings.getSeasonManifest()                  // metadata for all seasons
+client.standings.getNow(); // current standings
+client.standings.getByDate('2024-01-15'); // standings at a date
+client.standings.getSeasonManifest(); // metadata for all seasons
 ```
 
 ### Game Center
 
 ```ts
-client.gameCenter.getBoxscore(gameId)                 // full boxscore
-client.gameCenter.getPlayByPlay(gameId)               // play-by-play events
-client.gameCenter.getLanding(gameId)                  // game matchup page
-client.gameCenter.getRightRail(gameId)                // season series stats
-client.gameCenter.getScoresNow()                      // scores for today
-client.gameCenter.getScores('2024-01-15')             // scores for a date
+client.gameCenter.getBoxscore(gameId); // full boxscore
+client.gameCenter.getPlayByPlay(gameId); // play-by-play events
+client.gameCenter.getLanding(gameId); // game matchup page
+client.gameCenter.getRightRail(gameId); // season series stats
+client.gameCenter.getScoresNow(); // scores for today
+client.gameCenter.getScores('2024-01-15'); // scores for a date
 ```
 
 ### Players
 
 ```ts
-client.players.getLanding(playerId)                   // career stats & bio
-client.players.getGameLog(playerId, '20232024', 2)    // game-by-game log
-client.players.search('Sidney Crosby')                // search by name
+client.players.getLanding(playerId); // career stats & bio
+client.players.getGameLog(playerId, '20232024', 2); // game-by-game log
+client.players.search('Sidney Crosby'); // search by name
 ```
 
 Game type: `1` = Preseason, `2` = Regular Season, `3` = Playoffs.
@@ -138,8 +138,8 @@ Game type: `1` = Preseason, `2` = Regular Season, `3` = Playoffs.
 ### Roster
 
 ```ts
-client.roster.getTeam('TOR', '20232024')              // full team roster
-client.roster.getProspects('TOR')                     // team prospects
+client.roster.getTeam('TOR', '20232024'); // full team roster
+client.roster.getProspects('TOR'); // team prospects
 ```
 
 ### Stats
@@ -153,36 +153,36 @@ const params = {
   limit: 25,
 };
 
-client.stats.skaters.getSummary(params)               // skater stats
-client.stats.skaters.getTimeOnIce(params)
-client.stats.skaters.getPowerPlay(params)
-client.stats.skaters.getBios(params)
+client.stats.skaters.getSummary(params); // skater stats
+client.stats.skaters.getTimeOnIce(params);
+client.stats.skaters.getPowerPlay(params);
+client.stats.skaters.getBios(params);
 
-client.stats.teams.getSummary(params)                 // team stats
-client.stats.teams.getPowerPlay(params)
-client.stats.teams.getPenaltyKill(params)
+client.stats.teams.getSummary(params); // team stats
+client.stats.teams.getPowerPlay(params);
+client.stats.teams.getPenaltyKill(params);
 
-client.stats.goalies.getSummary(params)               // goalie stats
-client.stats.goalies.getAdvanced(params)
+client.stats.goalies.getSummary(params); // goalie stats
+client.stats.goalies.getAdvanced(params);
 ```
 
 ### EDGE Analytics
 
 ```ts
-client.edge.getSkaterDetail(playerId)                 // current season
-client.edge.getSkaterDetail(playerId, '20232024', 2)  // specific season
-client.edge.getShotSpeed(playerId)
-client.edge.getSkatingSpeed(playerId)
+client.edge.getSkaterDetail(playerId); // current season
+client.edge.getSkaterDetail(playerId, '20232024', 2); // specific season
+client.edge.getShotSpeed(playerId);
+client.edge.getSkatingSpeed(playerId);
 ```
 
 ### Misc
 
 ```ts
-client.misc.getSeasons()                              // all seasons with metadata
-client.misc.getFranchises()                           // all franchises (historical)
-client.misc.getCountries()                            // country reference data
-client.misc.getDraft(params)                          // draft data
-client.misc.getGlossary()                             // stat field definitions
+client.misc.getSeasons(); // all seasons with metadata
+client.misc.getFranchises(); // all franchises (historical)
+client.misc.getCountries(); // country reference data
+client.misc.getDraft(params); // draft data
+client.misc.getGlossary(); // stat field definitions
 ```
 
 ## Types
